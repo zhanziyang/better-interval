@@ -53,9 +53,12 @@
     this.action = action;
     this.interval = interval;
     this.args = args || [];
+    this.looping = false;
   };
 
   LoopRequest.prototype.start = function () {
+    if (this.looping) return;
+    this.looping = true;
     var now, lastFrameTime = 0, elapsed, lastReqTime = 0, reqGap;
     var loopFunc = function (timestamp) {
       reqGap = timestamp - lastReqTime;
@@ -77,7 +80,9 @@
   };
 
   LoopRequest.prototype.stop = function () {
+    if (!this.looping) return;
     cancelAnimationFrame(this.animationReq);
+    this.looping = false;
   };
 
   return LoopRequest;

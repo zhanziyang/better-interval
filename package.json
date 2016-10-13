@@ -1,6 +1,6 @@
 {
   "name": "loop-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "loopRequest.js",
   "description": "A piece of code for you to replace setInterval with requestAnimationFrame in order to create smoother and less buggy loop.",
   "repository": {
