@@ -64,7 +64,7 @@ window.stopLooping = stopLooping;
   var vendors = ['webkit', 'moz'];
   for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
     window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // Webkitä¸­æ­¤åæ¶æ¹æ³çåå­åäº
+    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // Webkit中此取消方法的名字变了
       window[vendors[x] + 'CancelRequestAnimationFrame'];
   }
 
@@ -113,9 +113,12 @@ window.stopLooping = stopLooping;
     this.action = action;
     this.interval = interval;
     this.args = args || [];
+    this.looping = false;
   };
 
   LoopRequest.prototype.start = function () {
+    if (this.looping) return;
+    this.looping = true;
     var now, lastFrameTime = 0, elapsed, lastReqTime = 0, reqGap;
     var loopFunc = function (timestamp) {
       reqGap = timestamp - lastReqTime;
@@ -137,7 +140,9 @@ window.stopLooping = stopLooping;
   };
 
   LoopRequest.prototype.stop = function () {
+    if (!this.looping) return;
     cancelAnimationFrame(this.animationReq);
+    this.looping = false;
   };
 
   return LoopRequest;
