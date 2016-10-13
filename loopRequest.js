@@ -30,7 +30,7 @@
   };
 } ());
 
-(function (window) {
+(function (window, module) {
   /*
     var loop = new Loop(action, interval, args);
     Args: 
@@ -85,4 +85,4 @@
   };
 
   window.LoopRequest = LoopRequest;
-} (window));
+} (window, module));

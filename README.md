@@ -1,5 +1,7 @@
 # loopRequest
 With loopRequest, you can easily make repetitive function executions like you usually do with <code>setInterval</code>. Under the hood it uses <code>requestAnimationFrame</code> to achieve the same purpose, but with better performance.
+### **NOTICE**:
+* It only works in browsers, not on servers.
 
 ## Let's not use setInterval anymore!
 Why?
