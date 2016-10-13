@@ -1,7 +1,8 @@
 # loopRequest
 With loopRequest, you can easily make repetitive function executions like you usually do with <code>setInterval</code>. Under the hood it uses <code>requestAnimationFrame</code> to achieve the same purpose, but with better performance.
 ### **NOTICE**:
-* It only works in browsers, not on servers.
+* Works in browsers, not on servers.
+* Supports CommonJS, so you can use it with tools like Browserify and Webpack.
 
 ## Let's not use setInterval anymore!
 Why?
@@ -22,6 +23,18 @@ See more: [Better Performance With requestAnimationFrame](https://dev.opera.com/
 * .stop()
 
 ## Example
+1. 
+```html
+<script src="loopRequest.js"></script>
+```
+or if you use module bundler such as Browserify:
+```cmd
+npm install --save loop-request
+```
+```javascript
+var LoopRequest = require("loop-request");
+```
+2.
 ```javascript
 var loop;
 var left = 0;

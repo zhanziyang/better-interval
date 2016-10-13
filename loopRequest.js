@@ -30,18 +30,14 @@
   };
 } ());
 
-(function (window, module) {
-  /*
-    var loop = new Loop(action, interval, args);
-    Args: 
-      @action: function 循环执行函数
-      @interval: number 毫秒间隔 可选 默认1000/60（≈16.7。是根据浏览器的刷新率——大多数为60fps得出）
-      @args: array 传给action的参数构成的数组 可选
-    loop.start(); 开始循环
-    loop.stop(); 停止循环
-    取代setInterval做重复执行。
-    ⚠ 如果是用于动画，interval的值应省略或趋近1/60以达到流畅的效果，在回调函数中通过调整每帧的改变量来调整速度。
-  */
+//LoopRequest
+(function (root, factory) {
+  if (typeof module === "object" && module.exports) {
+    module.exports = (root.LoopRequest = factory());
+  } else {
+    root.LoopRequest = factory();
+  }
+} (this, function () {
   var LoopRequest = function (action, interval, args) {
     if (typeof action != "function") {
       throw new Error("First argument should be of type function");
@@ -84,5 +80,5 @@
     cancelAnimationFrame(this.animationReq);
   };
 
-  window.LoopRequest = LoopRequest;
-} (window, module));
+  return LoopRequest;
+}));
