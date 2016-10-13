@@ -12,7 +12,7 @@ Why?
 See more: [Better Performance With requestAnimationFrame](https://dev.opera.com/articles/better-performance-with-requestanimationframe/) by Luz Caballero
 
 # Usage
-## new LoopRequest(callback, interval [, args])
+## new LoopRequest(callback [, interval] [, args])
 ### Argumemts:
 * **callback**: <em>Function</em> | Repetitively executing function
 * **interval**: <em>Number(milliseconds) | **optional** </em>| Time gap between each loop. By default it matches the display refresh rate of browser, which usually is 60 fps. So it's default value is approximately 16.7 (≈1000/60)
