@@ -2,9 +2,9 @@
   "name": "better-interval",
   "version": "1.0.4",
   "main": "dist/better-interval.js",
-  "description": "A piece of code for you to replace setInterval with requestAnimationFrame in order to create smoother and less buggy loop.",
+  "description": "It works similar to `setInterval`, but under the hood it uses requestAnimationFrame to achieve the same goal. So it's less buggy.",
   "repository": {
-    "url": "https://github.com/zhanziyang/loopRequest.git",
+    "url": "https://github.com/zhanziyang/better-interval.git",
     "type": "git"
   },
   "scripts": {
@@ -14,7 +14,7 @@
     "dev": "rollup -c -w"
   },
   "author": "zhanziyang <zhanziyang126@hotmail.com>",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
