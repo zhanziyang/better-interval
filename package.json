@@ -1,6 +1,6 @@
 {
   "name": "better-interval",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/better-interval.js",
   "description": "It works similar to `setInterval`, but under the hood it uses requestAnimationFrame to achieve the same goal. So it's less buggy.",
   "repository": {
