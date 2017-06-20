@@ -1,6 +1,6 @@
 /*
  * loopRequest
- * https://github.com/zhanziyang/loopRequest
+ * https://github.com/zhanziyang/better-interval
  * 
  * Copyright (c) 2017 zhanziyang
  * Released under the ISC license
