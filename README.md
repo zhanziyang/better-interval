@@ -1,55 +1,77 @@
-# loopRequest
-With loopRequest, you can easily make repetitive function executions like you usually do with <code>setInterval</code>. Under the hood it uses <code>requestAnimationFrame</code> to achieve the same purpose, but with better performance.
-### **NOTICE**:
-* Works in browsers, not on servers.
-* Supports CommonJS, so you can use it with tools like Browserify and Webpack.
+# BetterInterval
+It works similar to `setInterval`, but under the hood it uses <code>requestAnimationFrame</code> to achieve the same goal. So it's less buggy.
 
-## Let's not use setInterval anymore!
-Why?
+### NOTICE
+* Works in browsers, not on servers.
+* Supports CommonJS, so you can use it with tools like Browserify or Webpack.
+
+### Why not just use setInterval?
 - setInterval keeps running event when the browser tab or window is not active.
 - When the callback function takes longer to finish than the interval you set, it will not wait for the function thus resulting in enqueuing of multiple callback functions.
 
 See more: [Better Performance With requestAnimationFrame](https://dev.opera.com/articles/better-performance-with-requestanimationframe/) by Luz Caballero
 
-# Usage
-## new LoopRequest(callback [, interval] [, args])
-### Argumemts:
-* **callback**: <em>Function</em> | Repetitively executing function
-* **interval**: <em>Number(milliseconds) | **optional** </em>| Time gap between each loop. By default it matches the display refresh rate of browser, which usually is 60 fps. So it's default value is approximately 16.7 (≈1000/60)
-* **args**: <em>Array | **optional** </em>| Array of arguments to be passed into the callback function.
-
-### Methods:
-* .start()
-* .stop()
-
-## Example
-1. 
+## Quck Start
+### 1. Download
 ```html
-<script src="loopRequest.js"></script>
+<script src="better-interval.min.js"></script>
 ```
 or if you use module bundler such as Browserify:
 ```cmd
-npm install --save loop-request
+npm install --save better-interval
 ```
-```javascript
-var LoopRequest = require("loop-request");
-```
-2.
-```javascript
-var loop;
-var left = 0;
-var func = function(arg1, arg2) {
-  var elem = document.querySelector("#time");
-  elem.innerHTML = new Date();
-  left += 1;
-  if (left >= 1000) {
-    loop.stop(); //stop looping!
-  }
-  elem.style.position = "relative";
-  elem.style.left = left + "px";
-  console.log(arg1 + ", " + arg2);
-};
+### 2. Import
 
-loop = new LoopRequest(func, 100, ["hello", "world"]);
-loop.start(); //start looping!
+```javascript
+var BetterInterval = require("better-interval");
+```
+or
+```js
+import BetterInterval from 'better-interval'
+```
+
+## Usage
+### Constructor
+```js
+var betterInterval = new BetterInterval(callback [, interval] [, ...args])
+```
+#### callback: 
+- Repetitively executing function
+- type: `function`
+#### interval:
+- Time gap between each loop. By default it matches the display refresh rate of browser, which usually is 60 fps. So it's default value is approximately 16.7 (≈1000/60)
+- type: `number` (milliseconds)
+- optional
+#### args:
+- The rest arguments. They will be passed in to the callback.
+
+### Methods:
+- Start looping
+```js
+betterInterval.set()
+```
+
+- Stop looping
+```js
+betterInterval.clear()
+```
+
+## Example
+
+- Use BetterInterval to make a moving box animation. It moves 3 pixels per 100 milliseconds until the offset reach 1000.
+
+```javascript
+var box = document.querySelector("#box");
+var offset = 0;
+
+var betterInterval = new BetterInterval(function (increment, max) {
+  offset += increment;
+  box.style.left = offset + "px";
+
+  if (offset >= max) {
+    betterInterval.clear()
+  }
+}, 100, 3, 1000);
+
+betterInterval.set()
 ```

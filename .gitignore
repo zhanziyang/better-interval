@@ -1,3 +1,4 @@
+node_modules
 .history
-testCommonJS/node_modules
-yarn*
+.DS_Store
+.vscode

@@ -1,12 +1,29 @@
 {
-  "name": "loop-request",
+  "name": "set-better-interval",
   "version": "1.0.2",
-  "main": "loopRequest.js",
+  "main": "dist/better-interval.js",
   "description": "A piece of code for you to replace setInterval with requestAnimationFrame in order to create smoother and less buggy loop.",
   "repository": {
     "url": "https://github.com/zhanziyang/loopRequest.git",
     "type": "git"
   },
+  "scripts": {
+    "build:full": "rollup -c",
+    "build:min": "rollup -c --environment BUILD:min",
+    "build": "npm run build:full && npm run build:min",
+    "dev": "rollup -c -w"
+  },
   "author": "zhanziyang <zhanziyang126@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "babelrc-rollup": "^3.0.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.0.0"
+  }
 }
