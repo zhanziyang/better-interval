@@ -14,7 +14,7 @@ See more: [Better Performance With requestAnimationFrame](https://dev.opera.com/
 ## Quck Start
 ### 1. Download
 ```html
-<script src="https://unpkg.com/vue-croppa/dist/better-interval.min.js"></script>
+<script src="https://unpkg.com/better-interval/dist/better-interval.min.js"></script>
 ```
 or if you use module bundler such as Browserify:
 ```cmd
