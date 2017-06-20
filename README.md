@@ -14,7 +14,7 @@ See more: [Better Performance With requestAnimationFrame](https://dev.opera.com/
 ## Quck Start
 ### 1. Download
 ```html
-<script src="better-interval.min.js"></script>
+<script src="https://unpkg.com/vue-croppa/dist/better-interval.min.js"></script>
 ```
 or if you use module bundler such as Browserify:
 ```cmd
@@ -58,7 +58,7 @@ betterInterval.clear()
 
 ## Example
 
-- Use BetterInterval to make a moving box animation. It moves 3 pixels per 100 milliseconds until the offset reach 1000.
+- Use BetterInterval to make a moving box animation. It moves 3 pixels per 100 milliseconds until the offset reaches 1000.
 
 ```javascript
 var box = document.querySelector("#box");
