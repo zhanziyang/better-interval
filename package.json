@@ -1,5 +1,5 @@
 {
-  "name": "set-better-interval",
+  "name": "better-interval",
   "version": "1.0.3",
   "main": "dist/better-interval.js",
   "description": "A piece of code for you to replace setInterval with requestAnimationFrame in order to create smoother and less buggy loop.",
